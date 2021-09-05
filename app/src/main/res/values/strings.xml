@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dev life</string>
+
+    <string name="title_main_header">Developers Life</string>
+
+    <string name="failure_message">Произошла ошибка при загрузке данных</string>
+
+    <string name="action_repeat">Повторить</string>
+</resources>
