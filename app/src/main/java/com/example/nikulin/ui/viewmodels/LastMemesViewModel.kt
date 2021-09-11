@@ -3,16 +3,16 @@ package com.example.nikulin.ui.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nikulin.domain.entities.MemesEntity
 import com.example.nikulin.domain.RemoteRepository
 import com.example.nikulin.domain.entities.Failure
+import com.example.nikulin.domain.entities.MemesEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LastMemesViewModel : ViewModel() {
+class LastMemesViewModel @Inject constructor(private val remoteRepository: RemoteRepository) : ViewModel() {
 
-    private val remoteRepository = RemoteRepository()
 
     private val latestMemesPrivate = MutableLiveData<List<MemesEntity>>()
     val latestMemes: LiveData<List<MemesEntity>> = latestMemesPrivate
