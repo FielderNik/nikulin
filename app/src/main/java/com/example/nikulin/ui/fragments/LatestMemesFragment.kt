@@ -1,5 +1,6 @@
 package com.example.nikulin.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nikulin.domain.entities.MemesTypes
+import com.example.nikulin.appComponent
 import com.example.nikulin.databinding.FragmentLatestMemesBinding
-import com.example.nikulin.ui.adapters.SnapHelperOneByOne
+import com.example.nikulin.domain.entities.MemesTypes
 import com.example.nikulin.ui.adapters.LatestMemesAdapter
+import com.example.nikulin.ui.adapters.SnapHelperOneByOne
 import com.example.nikulin.ui.viewmodels.LastMemesViewModel
+import javax.inject.Inject
 
 
 class LatestMemesFragment : Fragment() {
@@ -20,13 +23,21 @@ class LatestMemesFragment : Fragment() {
         fun newInstance() = LatestMemesFragment()
     }
 
-    private lateinit var viewModel: LastMemesViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var binding: FragmentLatestMemesBinding
     private lateinit var latestMemesAdapter: LatestMemesAdapter
+    private lateinit var viewModel: LastMemesViewModel
+
+    override fun onAttach(context: Context) {
+        context.appComponent.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LastMemesViewModel::class.java)
+        requireContext().appComponent.inject(this)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(LastMemesViewModel::class.java)
         getLatestMemes()
     }
 
