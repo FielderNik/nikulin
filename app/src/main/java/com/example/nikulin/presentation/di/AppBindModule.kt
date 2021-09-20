@@ -1,4 +1,4 @@
-package com.example.nikulin.di
+package com.example.nikulin.presentation.di
 
 import com.example.nikulin.domain.IRemoteRepository
 import com.example.nikulin.domain.RemoteRepository

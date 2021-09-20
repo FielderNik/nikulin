@@ -1,8 +1,9 @@
-package com.example.nikulin.di
+package com.example.nikulin.presentation.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.nikulin.ui.viewmodels.*
+import com.example.nikulin.presentation.viewmodels.*
+import com.example.nikulin.presentation.viewmodels.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

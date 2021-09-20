@@ -1,4 +1,4 @@
-package com.example.nikulin.ui.fragments
+package com.example.nikulin.presentation.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nikulin.appComponent
 import com.example.nikulin.databinding.FragmentHotMemesBinding
 import com.example.nikulin.domain.entities.MemesTypes
-import com.example.nikulin.ui.adapters.LatestMemesAdapter
-import com.example.nikulin.ui.adapters.SnapHelperOneByOne
-import com.example.nikulin.ui.viewmodels.HotMemesViewModel
+import com.example.nikulin.presentation.adapters.LatestMemesAdapter
+import com.example.nikulin.presentation.adapters.SnapHelperOneByOne
+import com.example.nikulin.presentation.viewmodels.HotMemesViewModel
 import javax.inject.Inject
 
 

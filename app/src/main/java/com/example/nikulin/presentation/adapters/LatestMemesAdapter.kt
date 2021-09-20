@@ -1,4 +1,4 @@
-package com.example.nikulin.ui.adapters
+package com.example.nikulin.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

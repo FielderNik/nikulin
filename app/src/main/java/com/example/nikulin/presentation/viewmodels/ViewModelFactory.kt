@@ -1,4 +1,4 @@
-package com.example.nikulin.ui.viewmodels
+package com.example.nikulin.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

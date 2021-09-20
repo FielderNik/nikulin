@@ -1,14 +1,15 @@
-package com.example.nikulin.di
+package com.example.nikulin.presentation.di
 
 import androidx.lifecycle.ViewModel
 import com.example.nikulin.domain.RemoteRepository
-import com.example.nikulin.ui.fragments.HotMemesFragment
-import com.example.nikulin.ui.fragments.LatestMemesFragment
-import com.example.nikulin.ui.fragments.TopMemesFragment
+import com.example.nikulin.domain.usecase.GetMemesUseCase
+import com.example.nikulin.presentation.fragments.HotMemesFragment
+import com.example.nikulin.presentation.fragments.LatestMemesFragment
+import com.example.nikulin.presentation.fragments.TopMemesFragment
 import dagger.Component
 import dagger.Module
 
-@Component(modules = [AppModule::class, ViewModelModule::class])
+@Component(modules = [AppModule::class, ViewModelModule::class, UseCaseModule::class])
 interface AppComponent {
 
     fun inject(viewModel: ViewModel)
@@ -16,8 +17,8 @@ interface AppComponent {
     fun inject(hotMemesFragment: HotMemesFragment)
     fun inject(topMemesFragment: TopMemesFragment)
 
-
     val remoteRepository: RemoteRepository
+    val getMemesUseCase: GetMemesUseCase
 
 }
 

@@ -2,8 +2,8 @@ package com.example.nikulin
 
 import android.app.Application
 import android.content.Context
-import com.example.nikulin.di.AppComponent
-import com.example.nikulin.di.DaggerAppComponent
+import com.example.nikulin.presentation.di.AppComponent
+import com.example.nikulin.presentation.di.DaggerAppComponent
 
 class AppDevLife : Application() {
 

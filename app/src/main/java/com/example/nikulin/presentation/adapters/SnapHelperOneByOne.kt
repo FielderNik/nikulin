@@ -1,4 +1,4 @@
-package com.example.nikulin.ui.adapters
+package com.example.nikulin.presentation.adapters
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
