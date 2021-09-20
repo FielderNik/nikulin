@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nikulin.domain.entities.MemesTypes
 import com.example.nikulin.databinding.ActivityMainBinding
-import com.example.nikulin.ui.MemesViewPagerAdapter
+import com.example.nikulin.presentation.adapters.MemesViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {

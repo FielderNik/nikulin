@@ -4,8 +4,9 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class Api {
+class Api @Inject constructor() {
     val BASE_URL = "https://developerslife.ru/"
 
     val okHttpClient = OkHttpClient().newBuilder()

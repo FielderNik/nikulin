@@ -8,18 +8,20 @@ import retrofit2.http.Path
 interface MemesService {
 
     @GET("{memesType}/0?json=true")
-    suspend fun getLatestMemes(@Path ("memesType") memesType: String): ResponseMemes
+    suspend fun getLatestMemes(@Path("memesType") memesType: String): ResponseMemes
 
     @GET("{memesType}/{numPage}?json=true")
     suspend fun getNewLatestMemes(
-        @Path ("memesType") memesType: String,
-        @Path("numPage") numPage: Int)
-    : ResponseMemes
+        @Path("memesType") memesType: String,
+        @Path("numPage") numPage: Int
+    )
+            : ResponseMemes
 
 
     @GET("{memesType}/{numPage}?json=true")
     suspend fun getMemes(
-        @Path ("memesType") memesType: String,
-        @Path("numPage") numPage: Int)
+        @Path("memesType") memesType: String,
+        @Path("numPage") numPage: Int
+    )
             : ResponseMemes
 }

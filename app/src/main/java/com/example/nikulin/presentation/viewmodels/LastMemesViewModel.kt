@@ -1,18 +1,19 @@
-package com.example.nikulin.ui.viewmodels
+package com.example.nikulin.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nikulin.domain.entities.MemesEntity
 import com.example.nikulin.domain.RemoteRepository
 import com.example.nikulin.domain.entities.Failure
+import com.example.nikulin.domain.entities.MemesEntity
+import com.example.nikulin.domain.usecase.GetMemesUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LastMemesViewModel : ViewModel() {
+class LastMemesViewModel @Inject constructor(private val getMemesUseCase: GetMemesUseCase) : ViewModel() {
 
-    private val remoteRepository = RemoteRepository()
 
     private val latestMemesPrivate = MutableLiveData<List<MemesEntity>>()
     val latestMemes: LiveData<List<MemesEntity>> = latestMemesPrivate
@@ -24,7 +25,7 @@ class LastMemesViewModel : ViewModel() {
 
     fun getMemes(memesType: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            remoteRepository.getMemes(memesType, countPagesLatestMemes).fold(
+            getMemesUseCase.run(memesType, countPagesLatestMemes).fold(
                 { failure ->
                     failureLiveData.postValue(failure)
                 },

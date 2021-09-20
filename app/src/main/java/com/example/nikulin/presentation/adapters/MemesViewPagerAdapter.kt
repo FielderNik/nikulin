@@ -1,12 +1,12 @@
-package com.example.nikulin.ui
+package com.example.nikulin.presentation.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.nikulin.domain.entities.MemesTypes
-import com.example.nikulin.ui.fragments.HotMemesFragment
-import com.example.nikulin.ui.fragments.LatestMemesFragment
-import com.example.nikulin.ui.fragments.TopMemesFragment
+import com.example.nikulin.presentation.fragments.HotMemesFragment
+import com.example.nikulin.presentation.fragments.LatestMemesFragment
+import com.example.nikulin.presentation.fragments.TopMemesFragment
 
 class MemesViewPagerAdapter(activity: FragmentActivity, val tabsList: List<MemesTypes>) : FragmentStateAdapter(activity) {
 

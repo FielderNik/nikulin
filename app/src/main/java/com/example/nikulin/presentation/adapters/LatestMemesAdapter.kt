@@ -1,4 +1,4 @@
-package com.example.nikulin.ui.adapters
+package com.example.nikulin.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.nikulin.R
-import com.example.nikulin.domain.entities.MemesEntity
 import com.example.nikulin.databinding.ItemMemesBinding
+import com.example.nikulin.domain.entities.MemesEntity
 
 class LatestMemesAdapter() : RecyclerView.Adapter<LatestMemesAdapter.ViewHolder>() {
 

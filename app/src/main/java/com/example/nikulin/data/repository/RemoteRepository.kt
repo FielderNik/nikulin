@@ -1,18 +1,17 @@
 package com.example.nikulin.domain
 
 import com.example.nikulin.data.remote.Api
+import com.example.nikulin.domain.entities.Failure
 import com.example.nikulin.domain.entities.MemesEntity
 import com.example.nikulin.utils.Either
-import com.example.nikulin.domain.entities.Failure
+import javax.inject.Inject
 
 interface IRemoteRepository {
     suspend fun getMemes(memesType: String, numPage: Int): Either<Failure, MutableList<MemesEntity>>
 }
 
 
-class RemoteRepository : IRemoteRepository {
-    val api = Api()
-
+class RemoteRepository @Inject constructor(private val api: Api) : IRemoteRepository {
 
     override suspend fun getMemes(memesType: String, numPage: Int): Either<Failure, MutableList<MemesEntity>> {
         return try {

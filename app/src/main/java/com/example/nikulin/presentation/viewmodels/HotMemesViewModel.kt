@@ -1,18 +1,18 @@
-package com.example.nikulin.ui.viewmodels
+package com.example.nikulin.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nikulin.domain.entities.MemesEntity
 import com.example.nikulin.domain.RemoteRepository
 import com.example.nikulin.domain.entities.Failure
+import com.example.nikulin.domain.entities.MemesEntity
+import com.example.nikulin.domain.usecase.GetMemesUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HotMemesViewModel : ViewModel() {
-
-    private val remoteRepository = RemoteRepository()
+class HotMemesViewModel @Inject constructor(private val getMemesUseCase: GetMemesUseCase) : ViewModel() {
 
     private val hotMemesPrivate = MutableLiveData<List<MemesEntity>>()
     val hotMemes: LiveData<List<MemesEntity>> = hotMemesPrivate
@@ -23,7 +23,7 @@ class HotMemesViewModel : ViewModel() {
 
     fun getMemes(memesType: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            remoteRepository.getMemes(memesType, countPages).fold(
+            getMemesUseCase.run(memesType, countPages).fold(
                 { failure ->
                     failureHotMemesLiveData.postValue(failure)
                 },
